@@ -1,5 +1,5 @@
 const SignUpPage = () => {
-	return <div>Special for Laurynas</div>
+	return <div>Special for Auris</div>
 }
 
 export default SignUpPage
