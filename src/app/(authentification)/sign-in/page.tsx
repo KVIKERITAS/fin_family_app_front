@@ -25,14 +25,14 @@ const SingInPage = () => {
 		</div>
 		<div className='flex-1 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8'>
 			<div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-				<h2 className='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>PRISIJUNGIMO
-					FORMA</h2>
+				<h2 className='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>
+					Sign in to your account
+				</h2>
 			</div>
 			<div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
 				<form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
 					<div>
-						<label htmlFor='email' className='block text-sm font-medium leading-6 text-gray-900'>Vartotojo
-							vardas</label>
+						<label className='block text-sm font-medium leading-6 text-gray-900'>Username</label>
 						<div className='mt-2'>
 							<Input type='text'
 										 className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
@@ -46,7 +46,7 @@ const SingInPage = () => {
 					<div>
 						<div className='flex items-center justify-between'>
 							<label htmlFor='password'
-										 className='block text-sm font-medium leading-6 text-gray-900'>Slaptažodis</label>
+										 className='block text-sm font-medium leading-6 text-gray-900'>Password</label>
 						</div>
 						<div className='mt-2'>
 							<Input type='password'
@@ -56,21 +56,22 @@ const SingInPage = () => {
 										 })}
 							/>
 							<div className='text-sm text-end mt-2'>
-								<a href='#' className='font-semibold text-indigo-600 hover:text-indigo-500'>Pamiršai
-									slaptažodį?</a>
+								<a href='#' className='font-semibold text-indigo-600 hover:text-indigo-500'>
+									Forgot password?
+								</a>
 							</div>
 						</div>
 					</div>
 					<div>
 						<Button type='submit' className='w-full'>
-							Prisijungti
+							Sign in
 						</Button>
 					</div>
 				</form>
 				<p className='mt-10 text-center text-sm text-gray-500'>
-					<span>Neturi paskyros? </span>
+					<span>Do not have an account yet? </span>
 					<Link href='/sign-up'
-								className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'>Registruokis</Link>
+								className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'>Sign up</Link>
 				</p>
 			</div>
 		</div>
