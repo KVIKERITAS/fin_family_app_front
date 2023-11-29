@@ -6,7 +6,7 @@ import { MobileSideBar } from './MobileSideBar'
 
 export default function Navbar() {
 	return (
-		<nav className='h-[100px] flex justify-between items-center px-6 shadow-sm'>
+		<nav className='h-[50px] flex justify-between items-center px-6 shadow-sm'>
 			<MobileSideBar />
 			<Logo />
 

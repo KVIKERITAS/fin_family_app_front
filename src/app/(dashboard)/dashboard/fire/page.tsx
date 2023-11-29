@@ -55,7 +55,6 @@ const FirePage = () => {
                             step="1"
                         />
                         <span className="text-gray-700 mx-auto my-1">  {retirementPercentage}%</span>
-
                     </label>
                 </label>
                 <Button type="submit">Calculate</Button>
