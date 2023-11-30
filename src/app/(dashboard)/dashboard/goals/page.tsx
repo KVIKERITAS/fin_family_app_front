@@ -1,4 +1,4 @@
-const Finance = () => {
+const Goals = () => {
   
     return (
         <div>
@@ -6,6 +6,6 @@ const Finance = () => {
         </div>
     );
 };
-export default Finance;
+export default Goals;
 
 
