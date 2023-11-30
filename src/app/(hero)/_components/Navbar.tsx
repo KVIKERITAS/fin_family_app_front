@@ -10,10 +10,10 @@ export default function Navbar() {
 			</div>
 
 			<div className='flex gap-2'>
-				<Button variant='outline'>
+				<Button variant='outline' asChild>
 					<Link href='/sign-in'>Sign in</Link>
 				</Button>
-				<Button>
+				<Button asChild>
 					<Link href='/sign-up'>Sign Up</Link>
 				</Button>
 			</div>
