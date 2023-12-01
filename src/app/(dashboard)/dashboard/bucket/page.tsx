@@ -1,6 +1,7 @@
 
 import React from 'react';
 import BucketListCard from './_components/BucketListCard';
+import {Button} from "@/components/ui/button";
 
 
 const Bucket = () => {
@@ -10,32 +11,39 @@ const Bucket = () => {
 		title: string;
 		imageUrl: string;
 		description: string;
+		date: string;
 	};
 
-	const bucketListItems: Bucket[] = [
+
+	// @ts-ignore
+	const bucketListItems: BucketItem[] = [
 		{
 			id: 1,
 			title: 'Waterfalls',
 			imageUrl: 'https://t4.ftcdn.net/jpg/01/31/89/13/360_F_131891333_YtJeWozj269tpiWnwz4vBkCBe7h26qNU.jpg',
-			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.'
+			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.',
+			date: '2025-01-01'
 		},
 		{
 			id: 2,
 			title: 'Waterfalls',
 			imageUrl: 'https://t4.ftcdn.net/jpg/01/31/89/13/360_F_131891333_YtJeWozj269tpiWnwz4vBkCBe7h26qNU.jpg',
-			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.'
+			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.',
+			date: '2026-01-01'
 		},
 		{
 			id: 3,
 			title: 'Waterfalls',
 			imageUrl: 'https://t4.ftcdn.net/jpg/01/31/89/13/360_F_131891333_YtJeWozj269tpiWnwz4vBkCBe7h26qNU.jpg',
-			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.'
+			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.',
+			date: '2027-01-01'
 		},
 		{
 			id: 4,
 			title: 'Waterfalls',
 			imageUrl: 'https://t4.ftcdn.net/jpg/01/31/89/13/360_F_131891333_YtJeWozj269tpiWnwz4vBkCBe7h26qNU.jpg',
-			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.'
+			description: 'Sample text. Click to select the text box. Click again or double click to start editing the text.',
+			date: '2028-01-01'
 		}
 
 	];
@@ -58,6 +66,9 @@ const Bucket = () => {
 					dreams you want to fulfill, and life experiences you wish to experience before you die.
 				</h4>
 
+				<Button className="mt-5 w-60 bg-green-500 block mx-auto">Add new one to your list</Button>
+
+
 				<h1 className="mt-5 shadow-cyan-500/50 text-4xl decoration-cyan-50 bg-slate-50">
 					Your list:
 				</h1>
@@ -68,7 +79,7 @@ const Bucket = () => {
 							title={item.title}
 							imageUrl={item.imageUrl}
 							description={item.description}
-							// onClick={() => console.log('More button clicked!')} // Placeholder for the actual function
+							date={item.date}
 						/>
 					))}
 				</div>
