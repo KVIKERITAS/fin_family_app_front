@@ -1,6 +1,8 @@
+'use client'
 import { ArrowDown, ArrowUp, LucideProps, Utensils, Receipt, BadgeEuro, Plus } from 'lucide-react'
-import { ForwardRefExoticComponent } from 'react'
+import { ForwardRefExoticComponent, useState } from 'react'
 import SingleTransactionEntry from '@/app/(dashboard)/dashboard/personal-finance/_components/SingleTransactionEntry'
+import AddTransactionModal from '@/app/(dashboard)/dashboard/personal-finance/_components/AddTransactionModal'
 
 export type TTransaction = {
 	category: string
@@ -29,15 +31,15 @@ const transactions = [
 	},
 ]
 
-const
-	Finance = () => {
+const	Finance = () => {
+		const [transactionType, setTransactionType] = useState('')
 		return (
-			<div className='w-full p-3 h-[90vh] relative'>
+			<div className='w-full p-3 h-[90vh] relative' >
 				<div className='bg-blue-900 w-full text-center p-3 rounded'>
 					<p className='text-accent text-2xl my-3'>Your Balance:</p>
 					<p className='text-accent text-4xl my-3'>666 €</p>
 					<div className='flex p-3 gap-3 flex-wrap'>
-						<div className='flex-1 bg-green-500 p-5 rounded'>
+						<div className='flex-1 bg-green-500 py-5 pl-2 pr-4 rounded'>
 							<div className='flex gap-2 items-center justify-center'>
 								<ArrowUp size={50} />
 								<div className='text-left'>
@@ -46,7 +48,7 @@ const
 								</div>
 							</div>
 						</div>
-						<div className='flex-1 bg-[#f57b42] p-5 rounded'>
+						<div className='flex-1 bg-[#f57b42] py-5  pl-2 pr-4 rounded'>
 							<div className='flex gap-2 items-center justify-center'>
 								<ArrowDown size={50} />
 								<div className='text-left'>
@@ -69,13 +71,20 @@ const
 					</div>
 				</div>
 				<div className='flex gap-3 justify-center p-5'>
-					<div className='bg-green-500 p-5 rounded-full cursor-pointer'>
+					<div
+						className='bg-green-500 p-5 rounded-full cursor-pointer'
+						onClick={() => setTransactionType('income')}
+					>
 						<Plus size={50} />
 					</div>
-					<div className='bg-[#f57b42] p-5 rounded-full cursor-pointer'>
+					<div
+						className='bg-[#f57b42] p-5 rounded-full cursor-pointer'
+						onClick={() => setTransactionType('expense')}
+					>
 						<Plus size={50} />
 					</div>
 				</div>
+				{transactionType !== '' && <AddTransactionModal transactionType={transactionType} setTransactionType={setTransactionType} />}
 			</div>
 		)
 	}

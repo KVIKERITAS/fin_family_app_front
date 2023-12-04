@@ -44,7 +44,7 @@ const Portfolio = () => {
 	]
 
 	return (
-		<div className='min-h-screen flex flex-col mt-10 items-center gap-5 '>
+		<div className='w-full min-h-screen flex flex-col mt-10 items-center gap-5 '>
 			<h1 className=' text-3xl sm:text-4xl lg:text-5xl text-center font-mono'>
 				Assets Classes
 			</h1>
