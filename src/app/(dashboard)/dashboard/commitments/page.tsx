@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image'
+
 const Commitments = () => {
 	return (
 		<div>
@@ -9,19 +10,20 @@ const Commitments = () => {
 				<div>
 					<h2>User&#39;s Subscriptions (TV/Streaming Services and etc.)</h2>
 					{/* Note: it may/may not be link to open the modal for user to see their current subscription plans and info about them*/}
-					<img
+					<Image
 						src='https://cdn.pixabay.com/photo/2016/09/21/11/31/youtube-1684601_960_720.png'
-						height={450}
 						width={450}
-						alt='tv'
+						height={450}
+						alt='tv image'
 					/>
 				</div>
 				<div>
 					<h2>User&#39;s Leasing (car&#39;s, house&#39;s and etc.)</h2>
 					{/* Note: it may/may not be link to open the modal for user to see their current leasings and info about them*/}
-					<img
+
+					<Image
 						src='https://cdn.pixabay.com/photo/2021/02/01/13/37/cars-5970663_640.png'
-						height={350}
+						height={450}
 						width={450}
 						alt='cars'
 					/>
@@ -29,7 +31,7 @@ const Commitments = () => {
 				<div>
 					<h2>User&#39;s Debts (study, apartment and etc.)</h2>
 					{/* Note: it may/may not be link to open the modal for user to see their all debts and info about it*/}
-					<img
+					<Image
 						src='https://cdn.pixabay.com/photo/2018/03/01/17/36/room-3191241_640.jpg'
 						height={350}
 						width={450}
