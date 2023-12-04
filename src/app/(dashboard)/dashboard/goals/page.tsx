@@ -18,7 +18,7 @@ const Goals = () => {
 				<TableHeader>
 					<TableRow>
 						<TableHead className='w-1/2'>Goal</TableHead>
-						<TableHead>Progress</TableHead>
+						<TableHead>Progress fdfsfsfsdfd fdfsdf</TableHead>
 					</TableRow>
 				</TableHeader>
 			</Table>
