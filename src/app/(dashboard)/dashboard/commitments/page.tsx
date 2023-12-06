@@ -11,38 +11,41 @@ import {
 	PopoverTrigger,
 } from '@/components/ui/popover'
 
+import { LeasingForm } from './_components/LeasingSchema'
+import { SubscriptionForm } from './_components/SubscriptionSchema'
+
 async function getData(): Promise<Payment[]> {
 	// Fetch data from your API here.
 	return [
 		{
 			id: '728ed52f',
 			amount: 26,
-			status: 'pending',
-			provider: 'Netflix',
+			subscription: 'Netflix',
+			date: new Date(),
 		},
 		{
 			id: '728ed52f',
 			amount: 10,
-			status: 'success',
-			provider: 'Hulu',
+			subscription: 'Hulu',
+			date: new Date(),
 		},
 		{
 			id: '728ed52f',
 			amount: 5,
-			status: 'failed',
-			provider: 'Youtube Premium',
+			subscription: 'Youtube Premium',
+			date: new Date(),
 		},
 		{
 			id: '728ed52f',
 			amount: 36,
-			status: 'pending',
-			provider: 'Tele2',
+			subscription: 'Tele2',
+			date: new Date(),
 		},
 		{
 			id: '728ed52f',
 			amount: 25,
-			status: 'pending',
-			provider: 'Bite',
+			subscription: 'Bite',
+			date: new Date(),
 		},
 	]
 }
@@ -52,14 +55,14 @@ async function getDataTwo(): Promise<Leasing[]> {
 		{
 			id: '464ok85f',
 			amount: 200,
-			status: 'pending',
 			type: 'House',
+			date: new Date(),
 		},
 		{
 			id: '464ok85f',
 			amount: 100,
-			status: 'pending',
 			type: 'Car',
+			date: new Date(),
 		},
 	]
 }
@@ -72,59 +75,60 @@ export default async function Commitments() {
 			<h1 className='text-lg text-center text-blue-900'>
 				User username&#39;s commitment page
 			</h1>
-			<div className='flex flex-wrap mt-7 gap-4'>
-				<div>
+			<div className='flex justify-center flex-wrap mt-7 gap-6'>
+				<div className='flex-1'>
 					<h2>User&#39;s Subscriptions (TV/Streaming Services and etc.)</h2>
-					<div className='h-[350px] w-[350px]'>
+					<div className='h-[350px] w-[500px]'>
 						<Image
 							src='https://cdn.pixabay.com/photo/2016/09/21/11/31/youtube-1684601_960_720.png'
-							width={450}
-							height={450}
+							width={350}
+							height={350}
 							alt='tv image'
 							className='object-contain h-full max-w-full'
 						/>
 					</div>
-
-					<Popover>
-						<PopoverTrigger>Click here for details</PopoverTrigger>
-						<PopoverContent>
-							<DataTable columns={columns} data={data} />
-						</PopoverContent>
-					</Popover>
+					<div className='sub-popovers flex gap-4'>
+						<Popover>
+							<PopoverTrigger>Click here for details</PopoverTrigger>
+							<PopoverContent>
+								{/* REMINDER TO CHECK HOW TO FORMATE DATE TO YYYY/MM/DD */}
+								<DataTable columns={columns} data={data} />
+							</PopoverContent>
+						</Popover>
+						<Popover>
+							<PopoverTrigger>Add new subscription</PopoverTrigger>
+							<PopoverContent>
+								<SubscriptionForm />
+							</PopoverContent>
+						</Popover>
+					</div>
 				</div>
-				<div>
+				<div className='flex-1'>
 					<h2>User&#39;s Leasing (car&#39;s, house&#39;s and etc.)</h2>
-					<div className='h-[350px] w-[350px]'>
+					<div className='h-[350px] w-[500px]'>
 						<Image
 							src='https://cdn.pixabay.com/photo/2021/02/01/13/37/cars-5970663_640.png'
 							height={350}
-							width={450}
+							width={350}
 							alt='cars'
 							className='object-contain h-auto max-w-full'
 						/>
 					</div>
-					<Popover>
-						<PopoverTrigger>Click here for details</PopoverTrigger>
-						<PopoverContent>
-							<DataTable columns={columnsTwo} data={dataTwo} />
-						</PopoverContent>
-					</Popover>
-				</div>
-				<div>
-					<h2>User&#39;s Debts (study, apartment and etc.)</h2>
-					<div className='h-[350px] w-[350px]'>
-						<Image
-							src='https://cdn.pixabay.com/photo/2018/03/01/17/36/room-3191241_640.jpg'
-							height={350}
-							width={450}
-							alt='apartments'
-							className='object-contain h-auto max-w-full'
-						/>
+					<div className='leasing-popover flex gap-4'>
+						<Popover>
+							<PopoverTrigger>Click here for details</PopoverTrigger>
+							<PopoverContent>
+								{/* REMINDER TO CHECK HOW TO FORMATE DATE TO YYYY/MM/DD */}
+								<DataTable columns={columnsTwo} data={dataTwo} />
+							</PopoverContent>
+						</Popover>
+						<Popover>
+							<PopoverTrigger>Add new loan/leasing</PopoverTrigger>
+							<PopoverContent>
+								<LeasingForm />
+							</PopoverContent>
+						</Popover>
 					</div>
-					<Popover>
-						<PopoverTrigger>Click here for details</PopoverTrigger>
-						<PopoverContent>Place content for the popover here.</PopoverContent>
-					</Popover>
 				</div>
 			</div>
 		</div>
