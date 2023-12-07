@@ -46,7 +46,7 @@ const Portfolio = () => {
 	return (
 		<div className='w-full min-h-screen flex flex-col mt-10 items-center gap-5 '>
 			<h1 className=' text-3xl sm:text-4xl lg:text-5xl text-center font-mono'>
-				Assets Classes vregtnbgdzard
+				Assets Classes fgreghsdtjthad
 			</h1>
 			<h4 className='mt-5 text-lg sm:text-xl lg:text-2xl font-sans text-center'>
 				Diversifying your portfolio by investing in different types of assets
