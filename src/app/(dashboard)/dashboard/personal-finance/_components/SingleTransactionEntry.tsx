@@ -1,6 +1,4 @@
 import { TTransaction } from '../page'
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
 import DeleteModal from '@/app/(dashboard)/_components/DeleteModal'
 import EditTransaction from '@/app/(dashboard)/dashboard/personal-finance/_components/EditTransaction'
 
