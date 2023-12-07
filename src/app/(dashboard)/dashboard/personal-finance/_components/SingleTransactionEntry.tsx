@@ -1,4 +1,7 @@
 import { TTransaction } from '../page'
+import { Button } from '@/components/ui/button'
+import { useState } from 'react'
+import DeleteModal from '@/app/(dashboard)/_components/DeleteModal'
 
 type TTransactionProp = {
 	transaction: TTransaction
@@ -21,6 +24,7 @@ const SingleTransactionEntry = ({ transaction }: TTransactionProp) => {
 					{transaction.value >= 0 ? '+' : ''}
 					{transaction.value}€
 				</p>
+				<DeleteModal/>
 			</div>
 		</div>
 	)

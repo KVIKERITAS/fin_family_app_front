@@ -1,8 +1,8 @@
-'use client'
-import { ArrowDown, ArrowUp, LucideProps, Utensils, Receipt, BadgeEuro, Plus } from 'lucide-react'
-import { ForwardRefExoticComponent, useState } from 'react'
+import { ArrowDown, ArrowUp, LucideProps, Utensils, Receipt, BadgeEuro, Plus, Minus } from 'lucide-react'
+import { ForwardRefExoticComponent } from 'react'
 import SingleTransactionEntry from '@/app/(dashboard)/dashboard/personal-finance/_components/SingleTransactionEntry'
 import AddTransactionModal from '@/app/(dashboard)/dashboard/personal-finance/_components/AddTransactionModal'
+import RemoveTransactionModal from '@/app/(dashboard)/dashboard/personal-finance/_components/RemoveTransactionModal'
 
 export type TTransaction = {
 	category: string
@@ -32,8 +32,7 @@ const transactions = [
 ]
 
 const	Finance = () => {
-		const [transactionType, setTransactionType] = useState('')
-		return (
+				return (
 			<div className='w-full p-3 h-[90vh] relative' >
 				<div className='bg-blue-900 w-full text-center p-3 rounded'>
 					<p className='text-accent text-2xl my-3'>Your Balance:</p>
@@ -71,20 +70,9 @@ const	Finance = () => {
 					</div>
 				</div>
 				<div className='flex gap-3 justify-center p-5'>
-					<div
-						className='bg-green-500 p-5 rounded-full cursor-pointer'
-						onClick={() => setTransactionType('income')}
-					>
-						<Plus size={50} />
-					</div>
-					<div
-						className='bg-[#f57b42] p-5 rounded-full cursor-pointer'
-						onClick={() => setTransactionType('expense')}
-					>
-						<Plus size={50} />
-					</div>
+					<AddTransactionModal />
+					<RemoveTransactionModal />
 				</div>
-				{transactionType !== '' && <AddTransactionModal transactionType={transactionType} setTransactionType={setTransactionType} />}
 			</div>
 		)
 	}
