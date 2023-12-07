@@ -5,8 +5,8 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@/components/ui/dialog"
-import {Button} from '@/components/ui/button'
+} from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -22,7 +22,7 @@ const AddTransactionModal = () => {
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
-					<DialogTitle className="mb-2 text-center">Add Income</DialogTitle>
+					<DialogTitle className='mb-2 text-center'>Add Income</DialogTitle>
 					<DialogDescription className='flex flex-col gap-4'>
 						<Input
 							type='number'
