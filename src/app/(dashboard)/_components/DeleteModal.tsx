@@ -18,10 +18,10 @@ const DeleteModal = () => {
 					<DialogTitle className='mb-2'>Are you absolutely sure?</DialogTitle>
 					<DialogDescription>
 						This action cannot be undone. This will permanently delete your shit.
-						<div className='mt-4 flex gap-2 justify-center'>
+						<span className='mt-4 flex gap-2 justify-center'>
 							<Button variant='outline'>Cancel</Button>
 							<Button>Delete</Button>
-						</div>
+						</span>
 					</DialogDescription>
 				</DialogHeader>
 			</DialogContent>

@@ -35,10 +35,10 @@ const EditTransaction = () => {
 							</SelectContent>
 						</Select>
 						<Textarea placeholder='Description' />
-						<div className='mt-4 flex gap-2 justify-center'>
+						<span className='mt-4 flex gap-2 justify-center'>
 							<Button variant='outline'>Cancel</Button>
 							<Button>Save</Button>
-						</div>
+						</span>
 					</DialogDescription>
 				</DialogHeader>
 			</DialogContent>
