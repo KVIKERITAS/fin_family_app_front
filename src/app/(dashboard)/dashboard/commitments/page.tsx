@@ -1,15 +1,30 @@
 import Image from 'next/image'
 
+import { Button } from '@/components/ui/button'
 import { Payment, columns } from './_components/Columns'
 import { DataTable } from './_components/DataTable'
 
 import { Leasing, columnsTwo } from './_components/ColumnsTwo'
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+
 import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-} from '@/components/ui/popover'
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion'
+
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from '@/components/ui/dialog'
+
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 import { LeasingForm } from './_components/LeasingSchema'
 import { SubscriptionForm } from './_components/SubscriptionSchema'
@@ -87,21 +102,55 @@ export default async function Commitments() {
 							className='object-contain h-full max-w-full'
 						/>
 					</div>
-					<div className='sub-popovers flex gap-4'>
-						<Popover>
-							<PopoverTrigger>Click here for details</PopoverTrigger>
-							<PopoverContent>
-								{/* REMINDER TO CHECK HOW TO FORMATE DATE TO YYYY/MM/DD */}
-								<DataTable columns={columns} data={data} />
-							</PopoverContent>
-						</Popover>
-						<Popover>
-							<PopoverTrigger>Add new subscription</PopoverTrigger>
-							<PopoverContent>
-								<SubscriptionForm />
-							</PopoverContent>
-						</Popover>
-					</div>
+					<Accordion type='single' collapsible>
+						<AccordionItem value='item-1'>
+							<AccordionTrigger>(Expand for more info)</AccordionTrigger>
+							<AccordionContent>
+								<Tabs defaultValue='subscriptions' className='p-2'>
+									<TabsList>
+										<TabsTrigger value='subscriptions'>
+											Your subscription plans
+										</TabsTrigger>
+										<TabsTrigger value='add-subscription'>
+											Add new subscription services
+										</TabsTrigger>
+									</TabsList>
+									<TabsContent value='subscriptions'>
+										<Dialog>
+											<DialogTrigger>
+												<Button className='mb-2'>Delete Subscription</Button>
+											</DialogTrigger>
+											<DialogContent>
+												<DialogHeader>
+													<DialogTitle>
+														Are you sure absolutely sure?
+													</DialogTitle>
+													<DialogDescription>
+														This action cannot be undone. This will permanently
+														delete your selected subscription(s).
+														<br />
+														Reminder: You can always enter a new subscription.
+														<br />
+														<Button type='submit' size='sm' className='mt-3'>
+															Yes
+														</Button>
+													</DialogDescription>
+												</DialogHeader>
+											</DialogContent>
+										</Dialog>
+										<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+											<DataTable columns={columns} data={data} />
+										</ScrollArea>
+									</TabsContent>
+									<TabsContent value='add-subscription'>
+										<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+											<SubscriptionForm />
+										</ScrollArea>
+									</TabsContent>
+								</Tabs>
+							</AccordionContent>
+						</AccordionItem>
+					</Accordion>
 				</div>
 				<div className='flex-1'>
 					<h2>User&#39;s Leasing (car&#39;s, house&#39;s and etc.)</h2>
@@ -114,21 +163,56 @@ export default async function Commitments() {
 							className='object-contain h-auto max-w-full'
 						/>
 					</div>
-					<div className='leasing-popover flex gap-4'>
-						<Popover>
-							<PopoverTrigger>Click here for details</PopoverTrigger>
-							<PopoverContent>
-								{/* REMINDER TO CHECK HOW TO FORMATE DATE TO YYYY/MM/DD */}
-								<DataTable columns={columnsTwo} data={dataTwo} />
-							</PopoverContent>
-						</Popover>
-						<Popover>
-							<PopoverTrigger>Add new loan/leasing</PopoverTrigger>
-							<PopoverContent>
-								<LeasingForm />
-							</PopoverContent>
-						</Popover>
-					</div>
+
+					<Accordion type='single' collapsible>
+						<AccordionItem value='item-1'>
+							<AccordionTrigger>(Expand for more info)</AccordionTrigger>
+							<AccordionContent>
+								<Tabs defaultValue='leasing' className='p-2'>
+									<TabsList>
+										<TabsTrigger value='leasing'>
+											Your current leasings
+										</TabsTrigger>
+										<TabsTrigger value='add-leasing'>
+											Add new subscription services
+										</TabsTrigger>
+									</TabsList>
+									<TabsContent value='leasing'>
+										<Dialog>
+											<DialogTrigger>
+												<Button className='mb-2'>Delete Leasing</Button>
+											</DialogTrigger>
+											<DialogContent>
+												<DialogHeader>
+													<DialogTitle>
+														Are you sure absolutely sure?
+													</DialogTitle>
+													<DialogDescription>
+														This action cannot be undone. This will permanently
+														delete your selected leasing(s).
+														<br />
+														Reminder: You can always enter a new leasing.
+														<br />
+														<Button type='submit' size='sm' className='mt-3'>
+															Yes
+														</Button>
+													</DialogDescription>
+												</DialogHeader>
+											</DialogContent>
+										</Dialog>
+										<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+											<DataTable columns={columnsTwo} data={dataTwo} />
+										</ScrollArea>
+									</TabsContent>
+									<TabsContent value='add-leasing'>
+										<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+											<LeasingForm />
+										</ScrollArea>
+									</TabsContent>
+								</Tabs>
+							</AccordionContent>
+						</AccordionItem>
+					</Accordion>
 				</div>
 			</div>
 		</div>
