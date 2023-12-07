@@ -4,6 +4,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import { MoreHorizontal } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -21,6 +22,17 @@ export type Leasing = {
 }
 
 export const columnsTwo: ColumnDef<Leasing>[] = [
+	{
+		accessorKey: 'checkbox',
+		header: '',
+		cell: ({ row }) => {
+			return (
+				<div>
+					<Checkbox />
+				</div>
+			)
+		},
+	},
 	{
 		accessorKey: 'date',
 		header: 'Date',
@@ -62,13 +74,8 @@ export const columnsTwo: ColumnDef<Leasing>[] = [
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align='end'>
 						<DropdownMenuLabel>Actions</DropdownMenuLabel>
-						<DropdownMenuItem
-							onClick={() => navigator.clipboard.writeText(payment.id)}
-						>
-							Copy payment ID
-						</DropdownMenuItem>
+						<DropdownMenuItem>Edit info</DropdownMenuItem>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem>Remove Subscription</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 			)

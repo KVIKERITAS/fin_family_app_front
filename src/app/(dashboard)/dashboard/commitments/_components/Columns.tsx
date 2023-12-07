@@ -13,6 +13,8 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+import { Checkbox } from '@/components/ui/checkbox'
+
 export type Payment = {
 	id: string
 	amount: number
@@ -21,6 +23,17 @@ export type Payment = {
 }
 
 export const columns: ColumnDef<Payment>[] = [
+	{
+		accessorKey: 'checkbox',
+		header: '',
+		cell: ({ row }) => {
+			return (
+				<div>
+					<Checkbox />
+				</div>
+			)
+		},
+	},
 	{
 		accessorKey: 'date',
 		header: 'Date',
@@ -64,7 +77,6 @@ export const columns: ColumnDef<Payment>[] = [
 						<DropdownMenuLabel>Actions</DropdownMenuLabel>
 						<DropdownMenuItem>Edit Info</DropdownMenuItem>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem>Remove Subscription</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 			)
