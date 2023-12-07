@@ -31,51 +31,51 @@ const transactions = [
 	},
 ]
 
-const	Finance = () => {
-				return (
-			<div className='w-full p-3 h-[90vh] relative' >
-				<div className='bg-blue-900 w-full text-center p-3 rounded'>
-					<p className='text-accent text-2xl my-3'>Your Balance:</p>
-					<p className='text-accent text-4xl my-3'>666 €</p>
-					<div className='flex p-3 gap-3 flex-wrap'>
-						<div className='flex-1 bg-green-500 py-5 pl-2 pr-4 rounded'>
-							<div className='flex gap-2 items-center justify-center'>
-								<ArrowUp size={50} />
-								<div className='text-left'>
-									<p className='font-bold'>Income:</p>
-									<p className='font-bold'>420 €</p>
-								</div>
-							</div>
-						</div>
-						<div className='flex-1 bg-[#f57b42] py-5  pl-2 pr-4 rounded'>
-							<div className='flex gap-2 items-center justify-center'>
-								<ArrowDown size={50} />
-								<div className='text-left'>
-									<p className='font-bold'>Expenses:</p>
-									<p className='font-bold'>69 €</p>
-								</div>
+const Finance = () => {
+	return (
+		<div className='w-full p-3 h-[90vh] relative'>
+			<div className='bg-blue-900 w-full text-center p-3 rounded'>
+				<p className='text-accent text-2xl my-3'>Your Balance:</p>
+				<p className='text-accent text-4xl my-3'>666 €</p>
+				<div className='flex p-3 gap-3 flex-wrap'>
+					<div className='flex-1 bg-green-500 py-5 pl-2 pr-4 rounded'>
+						<div className='flex gap-2 items-center justify-center'>
+							<ArrowUp size={50} />
+							<div className='text-left'>
+								<p className='font-bold'>Income:</p>
+								<p className='font-bold'>420 €</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className='p-6'>
-					<div className='flex w-full justify-between mb-3'>
-						<p>Recent transactions:</p>
-						<p className='cursor-pointer hover:text-blue-600 hover:underline'>See all</p>
+					<div className='flex-1 bg-[#f57b42] py-5  pl-2 pr-4 rounded'>
+						<div className='flex gap-2 items-center justify-center'>
+							<ArrowDown size={50} />
+							<div className='text-left'>
+								<p className='font-bold'>Expenses:</p>
+								<p className='font-bold'>69 €</p>
+							</div>
+						</div>
 					</div>
-					<div className='divide-y'>
-						{transactions.map((transaction: TTransaction, index) => (
-							<SingleTransactionEntry key={index} transaction={transaction}></SingleTransactionEntry>
-						))}
-					</div>
-				</div>
-				<div className='flex gap-3 justify-center p-5'>
-					<AddTransactionModal />
-					<RemoveTransactionModal />
 				</div>
 			</div>
-		)
-	}
+			<div className='p-6'>
+				<div className='flex w-full justify-between mb-3'>
+					<p>Recent transactions:</p>
+					<p className='cursor-pointer hover:text-blue-600 hover:underline'>See all</p>
+				</div>
+				<div className='divide-y'>
+					{transactions.map((transaction: TTransaction, index) => (
+						<SingleTransactionEntry key={index} transaction={transaction}></SingleTransactionEntry>
+					))}
+				</div>
+			</div>
+			<div className='flex gap-3 justify-center p-5'>
+				<AddTransactionModal />
+				<RemoveTransactionModal />
+			</div>
+		</div>
+	)
+}
 export default Finance
 
 
