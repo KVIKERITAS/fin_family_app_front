@@ -1,8 +1,8 @@
 import { ArrowDown, ArrowUp, LucideProps, Utensils, Receipt, BadgeEuro, Plus, Minus } from 'lucide-react'
 import { ForwardRefExoticComponent } from 'react'
 import SingleTransactionEntry from '@/app/(dashboard)/dashboard/personal-finance/_components/SingleTransactionEntry'
-import AddTransactionModal from '@/app/(dashboard)/dashboard/personal-finance/_components/AddTransactionModal'
-import RemoveTransactionModal from '@/app/(dashboard)/dashboard/personal-finance/_components/RemoveTransactionModal'
+import AddIncomeModal from '@/app/(dashboard)/dashboard/personal-finance/_components/AddIncomeModal'
+import AddExpenseModal from '@/app/(dashboard)/dashboard/personal-finance/_components/AddExpenseModal'
 
 export type TTransaction = {
 	category: string
@@ -70,8 +70,8 @@ const Finance = () => {
 				</div>
 			</div>
 			<div className='flex gap-3 justify-center p-5'>
-				<AddTransactionModal />
-				<RemoveTransactionModal />
+				<AddIncomeModal />
+				<AddExpenseModal />
 			</div>
 		</div>
 	)

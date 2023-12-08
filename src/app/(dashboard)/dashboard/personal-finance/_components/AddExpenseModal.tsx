@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 
-const RemoveTransactionModal = () => {
+const AddExpenseModal = () => {
 	return (
 		<Dialog>
 			<DialogTrigger>
@@ -49,4 +49,4 @@ const RemoveTransactionModal = () => {
 	)
 }
 
-export default RemoveTransactionModal
+export default AddExpenseModal
