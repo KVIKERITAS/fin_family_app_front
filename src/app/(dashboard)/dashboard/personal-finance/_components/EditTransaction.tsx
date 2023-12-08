@@ -1,5 +1,6 @@
 import {
 	Dialog,
+	DialogClose,
 	DialogContent,
 	DialogDescription,
 	DialogHeader,
@@ -36,7 +37,7 @@ const EditTransaction = () => {
 						</Select>
 						<Textarea placeholder='Description' />
 						<span className='mt-4 flex gap-2 justify-center'>
-							<Button variant='outline'>Cancel</Button>
+							<DialogClose><Button variant='outline'>Cancel</Button></DialogClose>
 							<Button>Save</Button>
 						</span>
 					</DialogDescription>
