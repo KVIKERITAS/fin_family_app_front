@@ -1,4 +1,3 @@
-import DeleteModal from '@/app/(dashboard)/_components/DeleteModal'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Payment, columns } from './Columns'
@@ -56,9 +55,6 @@ export default async function Subscriptions() {
 				</TabsList>
 				<TabsContent value='subscriptions'>
 					<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
-						<div className='bg-red-600 hover:bg-red-700 text-amber-50 mt-2 mb-2 w-10'>
-							<DeleteModal itemToDelete='subscription(s)' />
-						</div>
 						<DataTable columns={columns} data={data} />
 					</ScrollArea>
 				</TabsContent>
