@@ -5,11 +5,11 @@ import SubAccordion from './_components/SubAccordion'
 
 export default async function Commitments() {
 	return (
-		<div>
-			<h1 className='text-lg text-center text-blue-900'>
+		<div className="w-full flex flex-col items-center">
+			<h1 className='text-3xl text-center text-blue-900 my-3'>
 				User username&#39;s commitment page
 			</h1>
-			<div className='flex justify-center flex-wrap mt-7 gap-6'>
+			<div className='w-full flex justify-center flex-wrap mt-7 gap-6'>
 				<div className='flex-1'>
 					<h2>User&#39;s Subscriptions (TV/Streaming Services and etc.)</h2>
 					<div className='h-[350px] w-[500px]'>

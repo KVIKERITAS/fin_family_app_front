@@ -55,8 +55,10 @@ export const columnsTwo: ColumnDef<Leasing>[] = [
 		header: '',
 		cell: ({ row }) => {
 			return (
-				<div className='bg-red-600 hover:bg-red-700 text-amber-50'>
-					<DeleteModal itemToDelete='subscription(s)' />
+				<div className="flex justify-center">
+					<div className='bg-red-600 hover:bg-red-700 text-amber-50 rounded'>
+						<DeleteModal itemToDelete='subscription(s)' />
+					</div>
 				</div>
 			)
 		},
