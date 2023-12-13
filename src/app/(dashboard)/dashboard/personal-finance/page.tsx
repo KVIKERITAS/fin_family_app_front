@@ -33,7 +33,7 @@ const transactions = [
 
 const Finance = () => {
 	return (
-		<div className='w-full p-3 h-[90vh] relative'>
+		<div className='w-full h-[90vh] relative'>
 			<div className='bg-blue-900 w-full text-center p-3 rounded'>
 				<p className='text-accent text-2xl my-3'>Your Balance:</p>
 				<p className='text-accent text-4xl my-3'>666 €</p>
