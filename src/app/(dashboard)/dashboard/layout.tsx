@@ -11,11 +11,11 @@ export default function DashboardLayout({
 		<>
 			<Navbar />
 			<main className='px-4 mx-auto'>
-				<div className='flex gap-x-7'>
-					<div className='w-64 shrink-0 hidden md:block'>
+				<div className='flex gap-x-7 pt-[50px]'>
+					<div className='w-64 shrink-0 hidden md:block fixed'>
 						<Sidebar />
 					</div>
-					{children}
+					<div className='md:ml-64 w-full'>{children}</div>
 				</div>
 			</main>
 		</>

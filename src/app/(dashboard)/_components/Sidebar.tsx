@@ -1,3 +1,4 @@
+'use client'
 import { navigation } from '../../../../config/navigation'
 import { NavItem } from './NavItem'
 
