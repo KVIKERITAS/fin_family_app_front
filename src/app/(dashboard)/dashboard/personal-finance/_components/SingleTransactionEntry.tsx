@@ -16,7 +16,7 @@ const SingleTransactionEntry = ({transaction}: TTransactionProp) => {
                     <p>{transaction.description}</p>
                 </div>
             </div>
-            <div className='text-2xl flex items-center'>
+            <div className='flex items-center font-bold'>
                 <p
                     className={transaction.value >= 0 ? 'text-green-700 mr-2' : 'text-red-700 mr-2'}
                 >
