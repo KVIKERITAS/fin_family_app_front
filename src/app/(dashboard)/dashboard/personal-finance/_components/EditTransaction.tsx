@@ -16,7 +16,7 @@ import { Textarea } from '@/components/ui/textarea'
 const EditTransaction = () => {
 	return (
 		<Dialog>
-			<DialogTrigger className='px-2'><Pencil /></DialogTrigger>
+			<DialogTrigger className='p-1 md:p-2'><Pencil /></DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle className='mb-2 text-center'>Edit Transaction</DialogTitle>

@@ -13,7 +13,7 @@ import {Trash2} from 'lucide-react'
 const DeleteModal = ({ itemToDelete }: { itemToDelete: string }) => {
     return (
         <Dialog>
-            <DialogTrigger className='p-2'><Trash2/></DialogTrigger>
+            <DialogTrigger className='p-1 md:p-2'><Trash2/></DialogTrigger>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle className='mb-2'>Are you sure you want to delete {itemToDelete}?</DialogTitle>
