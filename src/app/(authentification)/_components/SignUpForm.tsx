@@ -1,5 +1,6 @@
 'use client'
 
+import { signUpUserFn } from '@/api/auth'
 import { Button } from '@/components/ui/button'
 import {
 	Form,
@@ -11,7 +12,7 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
-import axios from 'axios'
+import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
@@ -35,10 +36,12 @@ const signUpSchema = z
 		path: ['pwRepeat'], // path of error
 	})
 
+export type TRegisterInput = typeof signUpSchema
+
 export function SignUpForm() {
 	const router = useRouter()
 	// 1. Define your form.
-	const form = useForm<z.infer<typeof signUpSchema>>({
+	const form = useForm<z.infer<TRegisterInput>>({
 		resolver: zodResolver(signUpSchema),
 		defaultValues: {
 			username: '',
@@ -48,17 +51,12 @@ export function SignUpForm() {
 		},
 	})
 
-	function onSubmit(values: z.infer<typeof signUpSchema>) {
-		console.log(values)
-		axios
-			.post('http://localhost:3333/auth/signup', values)
-			.then(function (response) {
-				console.log(response)
-				if (response.status === 201) router.push('/sign-in')
-			})
-			.catch(function (error) {
-				console.log(error)
-			})
+	const { mutate } = useMutation({
+		mutationFn: (formData: z.infer<TRegisterInput>) => signUpUserFn(formData),
+	})
+
+	function onSubmit(formData: z.infer<TRegisterInput>) {
+		mutate(formData)
 	}
 
 	return (
