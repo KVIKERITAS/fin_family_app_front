@@ -1,18 +1,9 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
-import { MoreHorizontal } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import DeleteModal from '@/app/(dashboard)/_components/DeleteModal'
+import EditLeasingsModal from './EditLeasingsModal'
 
 export type Leasing = {
 	id: string
@@ -22,17 +13,6 @@ export type Leasing = {
 }
 
 export const columnsTwo: ColumnDef<Leasing>[] = [
-	{
-		accessorKey: 'checkbox',
-		header: '',
-		cell: ({ row }) => {
-			return (
-				<div>
-					<Checkbox />
-				</div>
-			)
-		},
-	},
 	{
 		accessorKey: 'date',
 		header: 'Date',
@@ -60,24 +40,26 @@ export const columnsTwo: ColumnDef<Leasing>[] = [
 		},
 	},
 	{
-		id: 'actions',
+		accessorKey: 'action',
+		header: '',
 		cell: ({ row }) => {
-			const payment = row.original
-
 			return (
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant='ghost' className='h-8 w-8 p-0'>
-							<span className='sr-only'>Open menu</span>
-							<MoreHorizontal className='h-4 w-4' />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align='end'>
-						<DropdownMenuLabel>Actions</DropdownMenuLabel>
-						<DropdownMenuItem>Edit info</DropdownMenuItem>
-						<DropdownMenuSeparator />
-					</DropdownMenuContent>
-				</DropdownMenu>
+				<div className='flex items-center justify-center'>
+					<EditLeasingsModal />
+				</div>
+			)
+		},
+	},
+	{
+		accessorKey: 'delete',
+		header: '',
+		cell: ({ row }) => {
+			return (
+				<div className="flex justify-center">
+					<div className='bg-red-600 hover:bg-red-700 text-amber-50 rounded'>
+						<DeleteModal itemToDelete='subscription(s)' />
+					</div>
+				</div>
 			)
 		},
 	},
