@@ -13,7 +13,7 @@ import { EditSubscriptionForm } from './EditSubsFormSchema'
 const EditSubsModal = () => {
 	return (
 		<Dialog>
-			<DialogTrigger className='p-2'>
+			<DialogTrigger>
 				<Pencil />
 			</DialogTrigger>
 			<DialogContent>

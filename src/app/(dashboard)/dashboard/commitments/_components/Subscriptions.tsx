@@ -49,17 +49,17 @@ export default async function Subscriptions() {
 					<TabsTrigger value='subscriptions'>
 						Your subscription plans
 					</TabsTrigger>
-					<TabsTrigger value='add-subscription'>
-						Add new subscription services
+					<TabsTrigger value='add-subscription' className='font-bold'>
+						+ Add new
 					</TabsTrigger>
 				</TabsList>
 				<TabsContent value='subscriptions'>
-					<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+					<ScrollArea className='w-full rounded-md'>
 						<DataTable columns={columns} data={data} />
 					</ScrollArea>
 				</TabsContent>
 				<TabsContent value='add-subscription'>
-					<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+					<ScrollArea className='w-full rounded-md border p-2'>
 						<SubscriptionForm />
 					</ScrollArea>
 				</TabsContent>

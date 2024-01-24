@@ -95,7 +95,7 @@ export function SignUpForm() {
 						<FormItem>
 							<FormLabel>Password</FormLabel>
 							<FormControl>
-								<Input {...field} />
+								<Input type={"password"} {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -108,7 +108,7 @@ export function SignUpForm() {
 						<FormItem>
 							<FormLabel>Repeat your password</FormLabel>
 							<FormControl>
-								<Input {...field} />
+								<Input type={"password"} {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>

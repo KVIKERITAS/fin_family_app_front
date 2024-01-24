@@ -54,11 +54,7 @@ export const columns: ColumnDef<Payment>[] = [
 		header: '',
 		cell: ({ row }) => {
 			return (
-				<div className="flex justify-center">
-					<div className='bg-red-600 hover:bg-red-700 text-amber-50 rounded'>
-						<DeleteModal itemToDelete='subscription(s)' />
-					</div>
-				</div>
+				<DeleteModal itemToDelete='subscription(s)' />
 			)
 		},
 	},

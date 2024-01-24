@@ -21,24 +21,24 @@ async function getDataTwo(): Promise<Leasing[]> {
 	]
 }
 
-export default async function CLeasings() {
+export default async function Leasings() {
 	const dataTwo = await getDataTwo()
 	return (
 		<div>
 			<Tabs defaultValue='leasing' className='p-2'>
 				<TabsList>
 					<TabsTrigger value='leasing'>Your current leasings</TabsTrigger>
-					<TabsTrigger value='add-leasing'>
-						Add new subscription services
+					<TabsTrigger value='add-leasing' className='font-bold'>
+						+ Add new
 					</TabsTrigger>
 				</TabsList>
 				<TabsContent value='leasing'>
-					<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+					<ScrollArea className='w-full rounded-md'>
 						<DataTable columns={columnsTwo} data={dataTwo} />
 					</ScrollArea>
 				</TabsContent>
 				<TabsContent value='add-leasing'>
-					<ScrollArea className='h-[300px] w-[100%] rounded-md border p-4'>
+					<ScrollArea className='w-full rounded-md border p-2'>
 						<LeasingForm />
 					</ScrollArea>
 				</TabsContent>
