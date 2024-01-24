@@ -45,7 +45,7 @@ export function LeasingForm() {
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+			<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 p-1'>
 				<FormField
 					control={form.control}
 					name='type'
@@ -91,7 +91,9 @@ export function LeasingForm() {
 						</FormItem>
 					)}
 				/>
-				<Button type='submit'>Submit</Button>
+				<div className="flex justify-center">
+					<Button className="px-7" type='submit'>Submit</Button>
+				</div>
 			</form>
 		</Form>
 	)
