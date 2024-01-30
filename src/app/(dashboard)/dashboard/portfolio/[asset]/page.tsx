@@ -3,14 +3,12 @@
 import DeleteModal from '@/app/(dashboard)/_components/DeleteModal'
 import { Button } from '@/components/ui/button'
 import {
-	Table,
-	TableBody,
-	TableCell,
-	TableFooter,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from '@/components/ui/table'
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card'
 import { ArrowLeft, Plus } from 'lucide-react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -50,7 +48,8 @@ function Asset() {
 		if (params.asset === '3') setChosenAssets(FixedIncomeAssets)
 		if (params.asset === '4') setChosenAssets(AltInvestAssets)
 	}, [])
-
+	console.log('asset', asset)
+	console.log('chosenAssets', chosenAssets)
 	return (
 		<>
 			{asset && (
@@ -83,69 +82,41 @@ function Asset() {
 						</span>
 					</div>
 
-					<Table className='my-5'>
-						<TableHeader>
-							<TableRow>
-								{asset.categories.map((category, index) => (
-									<TableHead key={index} className='w-[100px]'>
-										{category}
-									</TableHead>
-								))}
-								<TableHead></TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							{chosenAssets ? (
-								chosenAssets.map((chosenAsset, index) => (
-									<TableRow key={index}>
+					<div className='flex flex-wrap gap-3 py-5'>
+						{chosenAssets &&
+							chosenAssets.map((chosenAsset) => (
+								<Card
+									key={chosenAsset.Asset_ID}
+									className={
+										chosenAssets.length > 1
+											? 'w-full md:flex-1'
+											: 'w-full md:w-1/2'
+									}
+								>
+									<CardHeader className='d-flex justify-between items-center flex-row'>
+										<CardTitle>{chosenAsset.Category}</CardTitle>
+										<DeleteModal itemToDelete='asset' />
+									</CardHeader>
+									<CardContent>
 										{Object.keys(chosenAsset).map((value, index) => {
-											if (index === 0) return
+											if (index === 0 || index === 1) return
 											return (
-												<TableCell key={index}>{chosenAsset[value]}</TableCell>
+												<div
+													key={index}
+													className='flex justify-between py-4 gap-4 border border-0 border-b-2'
+												>
+													<b>{value}:</b> <div>{chosenAsset[value]}</div>
+												</div>
 											)
 										})}
-										<TableCell>
-											{' '}
-											<EditAsset />
-											<DeleteModal itemToDelete='asset' />
-										</TableCell>
-									</TableRow>
-								))
-							) : (
-								<TableRow>
-									<TableCell className='font-medium'>
-										{asset.description[0]}
-									</TableCell>
-
-									<TableCell>$250.00</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell>$250.00</TableCell>
-									<TableCell>
-										{' '}
+									</CardContent>
+									<CardFooter className='flex justify-center'>
 										<EditAsset />
-										<DeleteModal itemToDelete='asset' />
-									</TableCell>
-								</TableRow>
-							)}
+									</CardFooter>
+								</Card>
+							))}
+					</div>
 
-							<TableRow>
-								<TableCell
-									colSpan={asset.categories.length + 1}
-									className='text-gray-300 hover:text-gray-500'
-								>
-									<Plus />
-								</TableCell>
-							</TableRow>
-						</TableBody>
-						<TableFooter>
-							<TableRow>
-								<TableCell colSpan={asset.categories.length}>Total</TableCell>
-								<TableCell className='text-right'>$2,500.00</TableCell>
-							</TableRow>
-						</TableFooter>
-					</Table>
 					<div className='hover:bg-sky-500 p-3 rounded-full cursor-pointer transition m-auto w-fit'>
 						<Plus size={50} />
 					</div>
