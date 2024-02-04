@@ -43,6 +43,8 @@ const transactions = [
 	},
 ]
 
+
+
 const Finance = () => {
 	return (
 		<div className='w-full h-[90vh] relative'>
