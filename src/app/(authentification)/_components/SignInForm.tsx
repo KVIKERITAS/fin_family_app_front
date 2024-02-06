@@ -1,6 +1,5 @@
 'use client'
 
-import { signInUserFn } from '@/api/auth'
 import { Button } from '@/components/ui/button'
 import {
 	Form,
@@ -12,7 +11,6 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
@@ -35,18 +33,11 @@ export function SignInForm() {
 		},
 	})
 
-	const { mutate } = useMutation({
-		mutationFn: (formData: z.infer<typeof SignInSchema>) =>
-			signInUserFn(formData),
-	})
-
 	function onSubmit(formData: z.infer<typeof SignInSchema>) {
 		setError('')
 		setSuccess('')
 
-		startTransition(() => {
-			mutate(formData)
-		})
+		startTransition(() => {})
 	}
 
 	return (

@@ -1,6 +1,5 @@
 'use client'
 
-import { signUpUserFn } from '@/api/auth'
 import { Button } from '@/components/ui/button'
 import {
 	Form,
@@ -11,8 +10,8 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { signUpUserFn } from '@/services/auth'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
@@ -36,17 +35,15 @@ export function SignUpForm() {
 		},
 	})
 
-	const { mutate } = useMutation({
-		mutationFn: (formData: z.infer<typeof SignUpSchema>) =>
-			signUpUserFn(formData),
-	})
-
 	function onSubmit(formData: z.infer<typeof SignUpSchema>) {
 		setError('')
 		setSuccess('')
 
-		startTransition(() => {
-			mutate(formData)
+		startTransition(async () => {
+			const response = await signUpUserFn(formData)
+
+			setError(response.error)
+			setSuccess(response.success)
 		})
 	}
 
@@ -55,7 +52,7 @@ export function SignUpForm() {
 			<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
 				<FormField
 					control={form.control}
-					name='email'
+					name='name'
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel>Name</FormLabel>
@@ -63,7 +60,7 @@ export function SignUpForm() {
 								<Input
 									{...field}
 									disabled={isPending}
-									placeholder='Name Surename'
+									placeholder='Name'
 									type='text'
 								/>
 							</FormControl>
