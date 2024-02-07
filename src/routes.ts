@@ -2,7 +2,7 @@
  * Routes that are accessible to everyone. No authentication is required.
  * @type {string[]}
  */
-export const publicRoutes = ['/']
+export const publicRoutes = ['/', '/logo.svg', '/login.PNG']
 
 /**
  * Routes that are used for authentication.
@@ -22,4 +22,4 @@ export const apiAuthPrefix = '/api/auth'
  * Default redirect path after logging in.
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT = '/dashboard'
+export const DEFAULT_LOGIN_REDIRECT = '/settings'
