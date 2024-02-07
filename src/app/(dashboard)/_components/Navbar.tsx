@@ -1,7 +1,7 @@
+import { signOut } from '@/auth'
 import { Logo } from '@/components/Logo'
 import { Button } from '@/components/ui/button'
 import { LogOut } from 'lucide-react'
-import Link from 'next/link'
 import { AvatarDemo } from './AvatarDemo'
 import { MobileSideBar } from './MobileSideBar'
 
@@ -15,11 +15,16 @@ export default function Navbar() {
 				<div>
 					<AvatarDemo />
 				</div>
-				<Button variant='ghost'>
-					<Link href='/'>
+				<form
+					action={async () => {
+						'use server'
+						await signOut()
+					}}
+				>
+					<Button variant='ghost' type='submit'>
 						<LogOut />
-					</Link>
-				</Button>
+					</Button>
+				</form>
 			</div>
 		</nav>
 	)
