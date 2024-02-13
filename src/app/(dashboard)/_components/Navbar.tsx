@@ -1,9 +1,6 @@
-import { signOut } from '@/auth'
 import { Logo } from '@/components/Logo'
-import { Button } from '@/components/ui/button'
-import { LogOut } from 'lucide-react'
-import { AvatarDemo } from './AvatarDemo'
 import { MobileSideBar } from './MobileSideBar'
+import { UserButton } from './UserButton'
 
 export default function Navbar() {
 	return (
@@ -13,18 +10,8 @@ export default function Navbar() {
 
 			<div className='flex gap-5 items-center'>
 				<div>
-					<AvatarDemo />
+					<UserButton />
 				</div>
-				<form
-					action={async () => {
-						'use server'
-						await signOut()
-					}}
-				>
-					<Button variant='ghost' type='submit'>
-						<LogOut />
-					</Button>
-				</form>
 			</div>
 		</nav>
 	)
