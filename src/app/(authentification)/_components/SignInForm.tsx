@@ -10,9 +10,8 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { DEFAULT_LOGIN_REDIRECT } from '@/routes'
+import { login } from '@/lib/login'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
@@ -38,12 +37,12 @@ export function SignInForm() {
 	function onSubmit(formData: z.infer<typeof SignInSchema>) {
 		setError('')
 		setSuccess('')
-		signIn('credentials', {
-			...formData,
-			redirectTo: DEFAULT_LOGIN_REDIRECT,
-		})
 
-		startTransition(() => {})
+		startTransition(() => {
+			login(formData).then((data) => {
+				setError(data?.error)
+			})
+		})
 	}
 
 	return (
