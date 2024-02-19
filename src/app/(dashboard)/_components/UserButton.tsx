@@ -28,7 +28,7 @@ export const UserButton = () => {
 			<DropdownMenuContent align='end'>
 				<DropdownMenuItem>
 					<Link
-						href={'dashboard/profile'}
+						href={'/dashboard/profile'}
 						className='flex items-center gap-2'
 						replace
 					>
