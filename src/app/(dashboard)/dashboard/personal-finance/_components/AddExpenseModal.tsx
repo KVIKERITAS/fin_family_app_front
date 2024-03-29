@@ -1,4 +1,5 @@
 'use client'
+import { Button } from '@/components/ui/button'
 import {
 	Dialog,
 	DialogContent,
@@ -7,18 +8,23 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Minus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import {useState} from "react";
+import { Minus } from 'lucide-react'
+import { useState } from 'react'
 
 const AddExpenseModal = () => {
-	const [sum, setSum] = useState(0);
-	const [category, setCategory] = useState('');
-	const [description, setDescription] = useState('');
-	const [errorMessage, setErrorMessage] = useState('');
+	const [sum, setSum] = useState(0)
+	const [category, setCategory] = useState('')
+	const [description, setDescription] = useState('')
+	const [errorMessage, setErrorMessage] = useState('')
 
 	async function addIncome() {
 		if (sum <= 0) {
@@ -29,7 +35,7 @@ const AddExpenseModal = () => {
 			setErrorMessage('Choose category')
 			return
 		}
-		setErrorMessage('');
+		setErrorMessage('')
 		const transaction = {
 			sum: sum,
 			type: 'expense',
@@ -40,18 +46,21 @@ const AddExpenseModal = () => {
 		console.log(transaction)
 
 		const options = {
-			method: "POST",
+			method: 'POST',
 			headers: {
-				"content-type": "application/json"
+				'content-type': 'application/json',
 			},
-			body: JSON.stringify(transaction)
+			body: JSON.stringify(transaction),
 		}
 		try {
-			const res = await fetch("http://localhost:8080/finances/create-transaction", options);
-			const data = await res.json();
-			console.log(data)
+			const res = await fetch(
+				'http://localhost:8080/api/finances/createTransaction',
+				options,
+			)
+			const data = await res.json()
+			console.log('data', data)
 		} catch (err) {
-			setErrorMessage('Server Error');
+			setErrorMessage('Server Error')
 		}
 	}
 	return (
@@ -77,9 +86,7 @@ const AddExpenseModal = () => {
 								<SelectValue placeholder='Category' />
 							</SelectTrigger>
 							<SelectContent>
-								<SelectItem value='Food'>
-									Food
-								</SelectItem>
+								<SelectItem value='Food'>Food</SelectItem>
 								<SelectItem value='Bills & Payments'>
 									Bills & Payments
 								</SelectItem>
@@ -91,7 +98,10 @@ const AddExpenseModal = () => {
 							onChange={(e) => setDescription(e.target.value)}
 						/>
 						<span className='text-center text-red-500'>{errorMessage}</span>
-						<Button className='bg-[#f57b42] hover:bg-red-600' onClick={addIncome}>
+						<Button
+							className='bg-[#f57b42] hover:bg-red-600'
+							onClick={addIncome}
+						>
 							Add Expense
 						</Button>
 					</DialogDescription>
