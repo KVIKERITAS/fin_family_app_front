@@ -10,7 +10,6 @@ import {
 	FormLabel,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useCurrentUser } from '@/hooks/useCurrentUser'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Settings } from 'lucide-react'
 import { useForm } from 'react-hook-form'
@@ -18,12 +17,10 @@ import * as z from 'zod'
 import { SettingsSchema } from '../../../../../schemas'
 
 const ProfilePage = () => {
-	const user = useCurrentUser()
-
 	const form = useForm<z.infer<typeof SettingsSchema>>({
 		resolver: zodResolver(SettingsSchema),
 		defaultValues: {
-			name: user?.name || undefined,
+			name: undefined,
 		},
 	})
 

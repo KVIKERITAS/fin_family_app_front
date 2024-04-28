@@ -7,19 +7,15 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { useCurrentUser } from '@/hooks/useCurrentUser'
 import { LogOut, Settings, User } from 'lucide-react'
-import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 
 export const UserButton = () => {
-	const user = useCurrentUser()
-
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger>
 				<Avatar>
-					<AvatarImage src={user?.image || undefined} />
+					<AvatarImage src={undefined} />
 					<AvatarFallback className='bg-sky-950 text-white'>
 						<User />
 					</AvatarFallback>
@@ -36,11 +32,10 @@ export const UserButton = () => {
 						Profile
 					</Link>
 				</DropdownMenuItem>
-				<DropdownMenuItem
-					className='flex items-center gap-2 cursor-pointer'
-					onClick={() => signOut()}
-				>
-					<LogOut className='w-4 h-4' /> Sign out
+				<DropdownMenuItem>
+					<Link href='/api/auth/logout' className='flex items-center gap-2'>
+						<LogOut className='w-4 h-4' /> Logout
+					</Link>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>

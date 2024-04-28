@@ -10,7 +10,6 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { login } from '@/lib/login'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
@@ -37,12 +36,6 @@ export function SignInForm() {
 	function onSubmit(formData: z.infer<typeof SignInSchema>) {
 		setError('')
 		setSuccess('')
-
-		startTransition(() => {
-			login(formData).then((data) => {
-				setError(data?.error)
-			})
-		})
 	}
 
 	return (

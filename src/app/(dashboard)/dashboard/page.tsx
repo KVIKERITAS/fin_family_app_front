@@ -1,3 +1,9 @@
+'use client'
+
+import { useUser } from '@auth0/nextjs-auth0/client'
+
 export default function DashboardPage() {
-	return <div>Dashboard</div>
+	const { user } = useUser()
+
+	return <div>{JSON.stringify(user)}</div>
 }
