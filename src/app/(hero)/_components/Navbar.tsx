@@ -11,11 +11,11 @@ export default function Navbar() {
 
 			<div className='flex gap-2'>
 				<Button variant='outline' asChild>
-					<Link href='/sign-in'>Sign in</Link>
+					<Link href='/api/auth/login'>Login</Link>
 				</Button>
-				<Button asChild>
+				{/* <Button asChild>
 					<Link href='/sign-up'>Sign Up</Link>
-				</Button>
+				</Button> */}
 			</div>
 		</nav>
 	)

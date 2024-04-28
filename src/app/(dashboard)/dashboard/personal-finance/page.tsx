@@ -1,7 +1,6 @@
 import AddExpenseModal from '@/app/(dashboard)/dashboard/personal-finance/_components/AddExpenseModal'
 import AddIncomeModal from '@/app/(dashboard)/dashboard/personal-finance/_components/AddIncomeModal'
 import SingleTransactionEntry from '@/app/(dashboard)/dashboard/personal-finance/_components/SingleTransactionEntry'
-import { auth } from '@/auth'
 import {
 	ArrowDown,
 	ArrowUp,
@@ -55,8 +54,6 @@ const transactions = [
 ]
 
 const Finance = async () => {
-	const session = await auth()
-
 	return (
 		<div className='w-full h-[90vh] relative'>
 			<div className='bg-blue-200 w-full text-center p-3 rounded'>
